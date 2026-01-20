@@ -1,0 +1,15 @@
+# fly.toml - Fly.io configuration
+app = "predictionmkt-monitor"
+primary_region = "sin"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  CHECK_INTERVAL_SECONDS = "30"
+  MIN_PROFIT_THRESHOLD = "0.1"
+  ALLOWED_CATEGORIES = "sports,crypto"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"

@@ -1,0 +1,17 @@
+services:
+  - type: worker
+    name: prediction-market-monitor
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -u main.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: CHECK_INTERVAL_SECONDS
+        value: "30"
+      - key: MIN_PROFIT_THRESHOLD
+        value: "0.1"
+      - key: ALLOWED_CATEGORIES
+        value: "sports,crypto"
